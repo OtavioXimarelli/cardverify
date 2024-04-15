@@ -14,31 +14,22 @@ def verify_card_number(card_number):
             number = (number // 10) + (number % 10)
         sum_of_even_digits += number
     total = sum_of_odd_digits + sum_of_even_digits
-    #print(total)
     return total % 10 == 0
 
-def  is_valid_credit_card_number(card_number):
-  card_number = card_number.replace(' ', '').replace('-', '')
+def is_valid_credit_card_number(card_number):
+    card_number = card_number.replace(' ', '').replace('-', '')
+
+    if card_number.isalnum():
+        return False
   
-  if not card_number.isdigit():
-    return False
+    if not card_number.isdigit():
+        return False
   
-  if len(card_number) != 16:
-    return False
+    if len(card_number) != 16:
+        return False
     
-  return verify_card_number(card_number)  
-
-"""
-def main():
-    card_number = '5174-6436-6968-2045'
-    card_translation = str.maketrans({'-': '', ' ': ''})
-    translated_card_number = card_number.translate(card_translation)
-
-    if verify_card_number(translated_card_number):
-        print('VALID!')
-    else:
-        print('INVALID!')
-"""
+    return verify_card_number(card_number)
+    
 
 def main():
   card_number = input('PLEASE ENTER YOUR CARD NUNMBER:  ')
