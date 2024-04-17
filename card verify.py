@@ -48,15 +48,28 @@ def is_valid_credit_card_number(card_number):
 
 
 def main():
-    # Main function
-    # Função principal
-    card_number = input('PLEASE ENTER YOUR CARD NUMBER: ')
+    #language choice menu, english or portuguese
+    #menu para escolha do idioma, inglês ou português
+    language_choice = input('Choose your language / Escolha seu idioma: 1 for ENGLISH, 2 para PORTUGUÊS')
 
-    if is_valid_credit_card_number(card_number):
-        print('THE CREDIT CARD IS VALID!')
+    #verifica qual o foi o idioma selecionado
+    #verifies what is the selected language
+    if language_choice == '1':
+        print('You choose English. ')
+        card_number = input('PLEASE ENTER YOUR CARD NUMBER IN THE FOLLOWING FORMAT XXXX-XXXX-XXXX-XXXX: ')
+        if is_valid_credit_card_number(card_number):
+            print('THE CREDIT CARD IS VALID!')
+        else:
+            print('SORRY, BUT THE CREDIT CARD IS INVALID. :(')
+    elif language_choice == '2':
+        print('Você escolheu Português.')
+        card_number = input('DIGITE O SEU NÚMERO DE CARTÃO NO FORMATO XXXX-XXXX-XXXX-XXXX: ')
+        if is_valid_credit_card_number(card_number):
+            print('O CARTÃO DE CRÉDITO É VÁLIDO!')
+        else:
+            print('DESCULPE, MAS O CARTÃO NÃO É VALIDO :( ')
     else:
-        print('SORRY, THE CREDIT CARD IS INVALID.')
-
+        print('Invalid choice / Escolha inválida.')
 
 if __name__ == "__main__":
     main()
